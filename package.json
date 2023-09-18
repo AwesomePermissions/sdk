@@ -1,0 +1,21 @@
+{
+  "name": "awesome-permissions-sdk",
+  "version": "1.0.0",
+  "description": "SDK to use awesome permissions",
+  "scripts": {
+    "dev": "nodemon test.js"
+  },
+  "author": {
+    "name": "Awesome permissions",
+    "email": "info@awesomepermissions.com",
+    "url": "https://awesomepermissions.com/"
+  },
+  "main": "lib/index.js",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
