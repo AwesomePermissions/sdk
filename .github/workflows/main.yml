@@ -20,6 +20,8 @@ jobs:
 
       - name: 🔧 Version patch
         run: npm version patch --legacy-peer-deps
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: 🚀 Publish NPM
         run: npm publish --tag "latest"
