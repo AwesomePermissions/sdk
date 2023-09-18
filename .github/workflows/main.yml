@@ -19,12 +19,12 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: 🔧 Version patch
-        run: npm version patch --legacy-peer-deps
+        run: NODE_AUTH_TOKEN=${{ secrets.NODE_AUTH_TOKEN }} npm version patch --legacy-peer-deps
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: 🚀 Publish NPM
-        run: npm publish --tag "latest"
+        run: NODE_AUTH_TOKEN=${{ secrets.NODE_AUTH_TOKEN }} npm publish --tag "latest"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
