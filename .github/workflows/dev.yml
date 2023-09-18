@@ -30,11 +30,4 @@ jobs:
         run: NODE_AUTH_TOKEN=${{ secrets.NODE_AUTH_TOKEN }} npm publish --tag "dev"
 
       - name: 🚀 Git push
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<info@awesomepermissions.com>"
-          git fetch origin dev
-          git checkout dev
-          git add .
-          git commit -m 'chore: version bump'
-            git push origin dev
+        run: git push
