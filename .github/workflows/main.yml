@@ -25,20 +25,11 @@ jobs:
 
       - name: 🚀 Version patch
         run: NODE_AUTH_TOKEN=${{ secrets.NODE_AUTH_TOKEN }} npm version patch --legacy-peer-deps
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: 🚀 Publish NPM
         run: NODE_AUTH_TOKEN=${{ secrets.NODE_AUTH_TOKEN }} npm publish --tag "latest"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-
-      - name: 🔧 Check for modified files
-        id: git-check
-        run: echo ::set-output name=modified::$(if git status | grep "nothing to commit"; then echo "false"; else echo "true"; fi)
 
       - name: 🚀 Git push
-        if: steps.git-check.outputs.modified == 'true'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<info@awesomepermissions.com>"
