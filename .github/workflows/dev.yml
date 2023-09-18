@@ -23,25 +23,12 @@ jobs:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: 🔧 Version patch
-        run: npm version patch --legacy-peer-deps
-
-      - name: 🚀 Publish NPM
-        run: npm publish --tag "dev"
+      - name: 🚀 Version patch
+        run: NODE_AUTH_TOKEN=${{ secrets.NODE_AUTH_TOKEN }} npm version patch --legacy-peer-deps
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
-      - name: 🔧 Check for modified files
-        id: git-check
-        run: echo ::set-output name=modified::$(if git status | grep "nothing to commit"; then echo "false"; else echo "true"; fi)
-
-      - name: 🚀 Git push
-        if: steps.git-check.outputs.modified == 'true'
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<info@awesomepermissions.com>"
-          git fetch origin dev
-          git checkout dev
-          git add .
-          git commit -m 'chore: version bump'
-          git push origin dev
+      - name: 🚀 Publish NPM
+        run: NODE_AUTH_TOKEN=${{ secrets.NODE_AUTH_TOKEN }} npm publish --tag "dev"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
