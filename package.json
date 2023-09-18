@@ -1,6 +1,6 @@
 {
-  "name": "awesome-permissions-sdk",
-  "version": "1.0.2",
+  "name": "@awesomepermissions/sdk",
+  "version": "1.0.0",
   "description": "SDK to use awesome permissions",
   "scripts": {
     "dev": "nodemon test.js"
