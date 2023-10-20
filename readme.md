@@ -9,6 +9,27 @@ Currently in progress.
 
 Website: [`https://www.awesomepermissions.com`](https://www.awesomepermissions.com)
 
+## Installation
+```shell
+npm install @awesomepermissions/sdk
+```
+
+## Usage
+```javascript
+const AwesomePermissions = require('@awesomepermissions/sdk');
+const awp = new AwesomePermissions({ accessKey: 'your_access_key' });
+
+const result = await awp.addPermissionsToItems({
+    items: ['user-id'],
+    itemTypes: ['user'],
+    permissions: ['image-id'],
+    actions: ['view'],
+    ignoreDuplicateErrors: true,
+});
+```
+
+For more information, please refer to the [`documentation`](https://www.awesomepermissions.com/docs)
+
 ## Contributors
 
 <a href="https://github.com/AwesomePermissions/sdk/graphs/contributors">
