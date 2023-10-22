@@ -4,12 +4,12 @@ const AwesomePermissions = require('./lib');
     try {
         const awp = new AwesomePermissions({
             developMode: true,
-            accessKey: 'rskxDSolCC_glGB92mKDqf87b7g_LhTkv47AO1Nz1TYAcpVpdR8H4XiPCzRY1IUz'
+            accessKey: 'rss8mLLhnio3LlSwcgCjIuDsvfhiH435boT1USe0eo4Q7rcmwELOKPtSxTaPrNjl'
         });
 
         console.log("1");
         await awp.addPermissionsToItems({
-            'items': ['Leonardo'],
+            'items': ['Leonardooooooodoode'],
             'itemTypes': ['user'],
             'permissions': ['image.mona-lisa'],
             'actions': ['owner']
