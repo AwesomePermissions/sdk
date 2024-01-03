@@ -4,7 +4,7 @@ const AwesomePermissions = require('./lib');
     try {
         const awp = new AwesomePermissions({
             developMode: true,
-            accessKey: 'rss8mLLhnio3LlSwcgCjIuDsvfhiH435boT1USe0eo4Q7rcmwELOKPtSxTaPrNjl'
+            accessKey: 'rsoCV2aVWIIFHJgHP4mByxBg1vxdqHYoYFt6Kx74-lnQF3uu6xlKQb3j4svDvMez',// 'rss8mLLhnio3LlSwcgCjIuDsvfhiH435boT1USe0eo4Q7rcmwELOKPtSxTaPrNjl'
         });
 
         console.log("1");
