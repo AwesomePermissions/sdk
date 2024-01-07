@@ -3,8 +3,8 @@ const AwesomePermissions = require('./lib');
 (async () => {
     try {
         const awp = new AwesomePermissions({
-            developMode: true,
-            accessKey: 'rsoCV2aVWIIFHJgHP4mByxBg1vxdqHYoYFt6Kx74-lnQF3uu6xlKQb3j4svDvMez',// 'rss8mLLhnio3LlSwcgCjIuDsvfhiH435boT1USe0eo4Q7rcmwELOKPtSxTaPrNjl'
+            developMode: false,
+            accessKey: 'rs4-YC3EFnIcdIAKSooz0VeO1NklaxpIhZenMeiJDxlwwaB2a9pSPujIbaWDTDj-',// 'rss8mLLhnio3LlSwcgCjIuDsvfhiH435boT1USe0eo4Q7rcmwELOKPtSxTaPrNjl'
         });
 
         console.log("1");

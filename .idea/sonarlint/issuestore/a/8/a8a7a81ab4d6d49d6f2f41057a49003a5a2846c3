@@ -1,4 +1,4 @@
 
-ejavascript:S6644Π"AUnnecessary use of conditional expression for default assignment.(ύσυβ8”¶τΛ1
-hjavascript:S3358Π"DExtract this nested ternary operation into an independent statement.(ύσυβ8”¶τΛ1
-javascript:S6582Ά"[Prefer using an optional chain expression instead, as it's more concise and easier to read.(Ω«€£8”¶τΛ1
+ejavascript:S6644Χ"AUnnecessary use of conditional expression for default assignment.(ύσυβ8–Η­Ξ1
+hjavascript:S3358Χ"DExtract this nested ternary operation into an independent statement.(ύσυβ8–Η­Ξ1
+javascript:S6582ª"[Prefer using an optional chain expression instead, as it's more concise and easier to read.(Ω«€£8αΒΑ­Ξ1
