@@ -3,62 +3,69 @@ const AwesomePermissions = require('./lib');
 (async () => {
     try {
         const awp = new AwesomePermissions({
-            developMode: false,
-            accessKey: 'rs4-YC3EFnIcdIAKSooz0VeO1NklaxpIhZenMeiJDxlwwaB2a9pSPujIbaWDTDj-',// 'rss8mLLhnio3LlSwcgCjIuDsvfhiH435boT1USe0eo4Q7rcmwELOKPtSxTaPrNjl'
+            developMode: true,
+            accessKey: 'rsDB03aJpFyg8wPuIHFbHmMAy_QGaW3qv_QDZB94h3_41zbNp-fvAJulieFjfoMo',// 'rss8mLLhnio3LlSwcgCjIuDsvfhiH435boT1USe0eo4Q7rcmwELOKPtSxTaPrNjl'
         });
 
-        console.log("1");
-        const r1 = await awp.addPermissionsToItems({
-            'items': ['Leonardooooooodoode'],
-            'itemTypes': ['user'],
-            'permissions': ['image.mona-lisa'],
-            'actions': ['owner']
-        });
-        console.log('1 - ', r1);
-        console.log("2");
-        const r2 = await awp.addPermissionsToItems({
-            'items': ['Mona Lisa´s'],
-            'itemTypes': ['image'],
-            'permissions': ['image.mona-lisa'],
-            'actions': ['owner']
-        });
-        console.log('2 - ', r2);
-        console.log("3");
-        const r3 = await awp.addPermissionsToItems({
-            'items': ['Mona Lisa´s'],
-            'itemTypes': ['image'],
-            'permissions': ['image.mona-lisa'],
-            'actions': ['view']
-        });
-        console.log('3 - ', r3);
-        console.log("4");
-        const r4 = await awp.addGroups([{
-            'name': 'Users with image view acces',
-            'key': 'users-imagee'
-        }]);
-        console.log('4 - ', r4);
-        console.log("5");
-        const r5 = await awp.addItemsToGroups({
-            'groups': ['users-imagee'],
-            'items': ['additional-user-1', 'additional-user-2', 'additional-user-3'],
-            'itemTypes': ['user']
-        });
-        console.log('5 - ', r5);
-        console.log("6");
-        const r6 = await awp.addPermissionsToGroups({
-            'groups': ['users-imagee'],
-            'permissions': ['image.mona-lisa'],
-            'actions': ['view']
-        });
-        console.log('6 - ', r6);
-        console.log("7");
-        // We check that they have access to each other by removing all items that have access to the image.
-        const r7 = await awp.getItemsWithPermissionsForItems({
-            'items': ['Mona Lisa´s'],
-            'itemTypes': ['user']
-        });
-        console.log('7 - ');
-        console.log(JSON.stringify(r7, null, ' '));
+
+        for (let i = 0; i < 100000; i++) {
+
+            console.log("1");
+            const r1 = await awp.addPermissionsToItems({
+                'items': ['Leonardooooooodoode'+i],
+                'itemTypes': ['user'],
+                'permissions': ['image.mona-lisa'+i],
+                'actions': ['owner'+i]
+            });
+            console.log('1 - ', r1);
+            console.log("2");
+            const r2 = await awp.addPermissionsToItems({
+                'items': ['Mona Lisa´s'+i],
+                'itemTypes': ['image'],
+                'permissions': ['image.mona-lisa'+i],
+                'actions': ['owner'+i]
+            });
+            console.log('2 - ', r2);
+            console.log("3");
+            const r3 = await awp.addPermissionsToItems({
+                'items': ['Mona Lisa´s'+i],
+                'itemTypes': ['image'],
+                'permissions': ['image.mona-lisa'+i],
+                'actions': ['view'+i]
+            });
+            console.log('3 - ', r3);
+            console.log("4");
+            try {
+                const r4 = await awp.addGroups([{
+                    'name': 'Users with image view acces'+i,
+                    'key': 'users-imagee'+i
+                }]);
+                console.log('4 - ', r4);
+            } catch (e) {}
+
+            console.log("5");
+            const r5 = await awp.addItemsToGroups({
+                'groups': ['users-imagee'+i],
+                'items': ['additional-user-1'+i, 'additional-user-2'+i, 'additional-user-3'+i],
+                'itemTypes': ['user']
+            });
+            console.log('5 - ', r5);
+            console.log("6");
+            const r6 = await awp.addPermissionsToGroups({
+                'groups': ['users-imagee'+i],
+                'permissions': ['image.mona-lisa'+i],
+                'actions': ['view']
+            });
+            console.log('6 - ', r6);
+            console.log("7");
+            // We check that they have access to each other by removing all items that have access to the image.
+            const r7 = await awp.getItemsWithPermissionsForItems({
+                'items': ['Mona Lisa´s'+i],
+                'itemTypes': ['user']
+            });
+            console.log('7 - ');
+            console.log(JSON.stringify(r7, null, ' '));
+        }
 
 
         /*
